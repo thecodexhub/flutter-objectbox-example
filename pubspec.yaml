@@ -15,6 +15,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
+  formz: ^0.4.1
   objectbox: ^1.6.0
   objectbox_flutter_libs: ^1.6.0
   path: ^1.8.1
