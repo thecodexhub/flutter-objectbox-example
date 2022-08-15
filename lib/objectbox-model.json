@@ -1,0 +1,87 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:7217190552277395867",
+      "lastPropertyId": "5:2663765814440690905",
+      "name": "Expense",
+      "properties": [
+        {
+          "id": "1:1527225490299843563",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:259747063648648230",
+          "name": "amount",
+          "type": 8
+        },
+        {
+          "id": "3:6298206329088241903",
+          "name": "note",
+          "type": 9
+        },
+        {
+          "id": "4:6041035703793031442",
+          "name": "date",
+          "type": 12
+        },
+        {
+          "id": "5:2663765814440690905",
+          "name": "expenseTypeId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "1:1723235740853294332",
+          "relationTarget": "ExpenseType"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "3:687153607940665596",
+      "lastPropertyId": "3:7116122762776967856",
+      "name": "ExpenseType",
+      "properties": [
+        {
+          "id": "1:3927516500936406884",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:6521466187271375061",
+          "name": "identifier",
+          "type": 9
+        },
+        {
+          "id": "3:7116122762776967856",
+          "name": "name",
+          "type": 9,
+          "flags": 2080,
+          "indexId": "2:4340554622386498839"
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "3:687153607940665596",
+  "lastIndexId": "2:4340554622386498839",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [
+    7620952543243995255
+  ],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [
+    3845386833114662251,
+    4882907920823481202,
+    1850253826698914775
+  ],
+  "retiredRelationUids": [],
+  "version": 1
+}
