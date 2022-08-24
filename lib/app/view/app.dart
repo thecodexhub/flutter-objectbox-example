@@ -26,7 +26,7 @@ class App extends StatelessWidget {
           title: 'Flutter Objectbox Example',
           debugShowCheckedModeBanner: false,
           theme: createAppTheme(context),
-          home: const Scaffold(),
+          home: const ExpensePage(),
         ),
       ),
     );
