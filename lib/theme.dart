@@ -7,10 +7,10 @@ ThemeData createAppTheme(BuildContext context) {
       titleTextStyle: Theme.of(context).textTheme.headline6?.copyWith(
             color: const Color(0xDD000000),
           ),
-      iconTheme: Theme.of(context).appBarTheme.iconTheme?.copyWith(
+      iconTheme: Theme.of(context).iconTheme.copyWith(
             color: const Color(0xDD000000),
           ),
-      actionsIconTheme: Theme.of(context).appBarTheme.iconTheme?.copyWith(
+      actionsIconTheme: Theme.of(context).iconTheme.copyWith(
             color: const Color(0xDD000000),
           ),
       elevation: 0,
