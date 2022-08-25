@@ -44,32 +44,40 @@ class ExpenseView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ExpenseBloc, ExpenseState>(
-      builder: (context, state) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _LastWeekSpentWidget(),
+        const SizedBox(height: 16.0),
+        const Divider(),
+        const SizedBox(height: 16.0),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            _LastWeekSpentWidget(),
-            const SizedBox(height: 16.0),
-            const Divider(),
-            const SizedBox(height: 16.0),
             const Text(
               'ALL EXPENSES',
               style: TextStyle(fontSize: 18),
             ),
-            const SizedBox(height: 24.0),
-            Expanded(
-              child: ListView.builder(
+            _ExpenseSortToggleWidget(),
+          ],
+        ),
+        const SizedBox(height: 24.0),
+        Expanded(
+          child: BlocBuilder<ExpenseBloc, ExpenseState>(
+            buildWhen: (previous, current) =>
+                previous.expenses != current.expenses,
+            builder: (context, state) {
+              return ListView.builder(
                 itemCount: state.expenses.length,
                 itemBuilder: (context, index) {
                   final expense = state.expenses.elementAt(index);
                   return ExpenseTile(expense: expense);
                 },
-              ),
-            ),
-          ],
-        );
-      },
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 }
@@ -103,6 +111,40 @@ class _LastWeekSpentWidget extends StatelessWidget {
               ],
             ),
           ),
+        );
+      },
+    );
+  }
+}
+
+class _ExpenseSortToggleWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<ExpenseBloc, ExpenseState>(
+      buildWhen: (previous, current) =>
+          previous.expenseSort != current.expenseSort,
+      builder: (context, state) {
+        return Row(
+          children: [
+            const Text(
+              'Sort by',
+              style: TextStyle(fontSize: 18),
+            ),
+            TextButton(
+              onPressed: () =>
+                  context.read<ExpenseBloc>().add(ToggleExpenseSort()),
+              child: Row(
+                children: [
+                  Text(
+                    state.expenseSort.label,
+                    style: const TextStyle(fontSize: 17),
+                  ),
+                  const SizedBox(width: 4),
+                  const Icon(Icons.code, size: 18),
+                ],
+              ),
+            ),
+          ],
         );
       },
     );

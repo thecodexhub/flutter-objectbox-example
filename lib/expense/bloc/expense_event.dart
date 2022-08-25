@@ -9,6 +9,12 @@ abstract class ExpenseEvent extends Equatable {
 
 class ExpenseListRequested extends ExpenseEvent {}
 
+class ExpenseListSortByTimeRequested extends ExpenseEvent {}
+
+class ExpenseListSortByAmountRequested extends ExpenseEvent {}
+
+class ToggleExpenseSort extends ExpenseEvent {}
+
 class ExpenseInLast7DaysRequested extends ExpenseEvent {}
 
 class ExpenseDeleted extends ExpenseEvent {

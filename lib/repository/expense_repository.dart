@@ -29,12 +29,29 @@ class ExpenseRepository {
         .query(objectbox_g.Expense_.date.greaterThan(
           DateTime.now()
                   .subtract(const Duration(days: 7))
-                  .microsecondsSinceEpoch * 1000,
+                  .microsecondsSinceEpoch *
+              1000,
         ))
         .watch(triggerImmediately: true)
         .map<double>((query) => query
             .find()
             .map<double>((e) => e.amount)
             .reduce((value, element) => value + element));
+  }
+
+  Stream<List<Expense>> getExpenseSortByTime() {
+    final query = store.box<Expense>().query()
+      ..order(objectbox_g.Expense_.date, flags: Order.descending);
+    return query
+        .watch(triggerImmediately: true)
+        .map<List<Expense>>((query) => query.find());
+  }
+
+  Stream<List<Expense>> getExpenseSortByAmount() {
+    final query = store.box<Expense>().query()
+      ..order(objectbox_g.Expense_.amount, flags: Order.descending);
+    return query
+        .watch(triggerImmediately: true)
+        .map<List<Expense>>((query) => query.find());
   }
 }
