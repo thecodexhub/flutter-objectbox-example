@@ -1,8 +1,6 @@
 name: flutter_objectbox_example
-description: A new Flutter project.
-
+description: Flutter project that shows how to work with ObjectBox database.
 publish_to: "none"
-
 version: 1.0.0+1
 
 environment:
