@@ -4,8 +4,8 @@ import 'package:flutter_objectbox_example/expense_type/expense_type.dart';
 import 'package:flutter_objectbox_example/form_inputs/form_inputs.dart';
 import 'package:formz/formz.dart';
 
-class ExpenseTypeForm extends StatelessWidget {
-  const ExpenseTypeForm({super.key});
+class ExpenseTypeView extends StatelessWidget {
+  const ExpenseTypeView({super.key});
 
   @override
   Widget build(BuildContext context) {

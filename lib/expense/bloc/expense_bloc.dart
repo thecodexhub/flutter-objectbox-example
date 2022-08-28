@@ -23,7 +23,7 @@ class ExpenseBloc extends Bloc<ExpenseEvent, ExpenseState> {
 
   Future<void> _onExpenseList(
     ExpenseListRequested event,
-    Emitter<ExpenseState> emit,
+    Emitter<ExpenseState> emit
   ) async {
     emit(state.copyWith(status: ExpenseStatus.loading));
     await emit.forEach<List<Expense>>(
@@ -74,7 +74,7 @@ class ExpenseBloc extends Bloc<ExpenseEvent, ExpenseState> {
 
   void _onToggleExpenseSort(
     ToggleExpenseSort event,
-    Emitter<ExpenseState> emit,
+    Emitter<ExpenseState> emit
   ) {
     if (state.expenseSort == ExpenseSort.none) {
       emit(state.copyWith(expenseSort: ExpenseSort.time));
@@ -90,7 +90,7 @@ class ExpenseBloc extends Bloc<ExpenseEvent, ExpenseState> {
 
   Future<void> _onExpenseInLast7DaysRequested(
     ExpenseInLast7DaysRequested event,
-    Emitter<ExpenseState> emit,
+    Emitter<ExpenseState> emit
   ) async {
     await emit.forEach<double>(
       _expenseRepository.expenseInLast7Days(),
@@ -103,10 +103,7 @@ class ExpenseBloc extends Bloc<ExpenseEvent, ExpenseState> {
     );
   }
 
-  void _onExpenseDeleted(
-    ExpenseDeleted event,
-    Emitter<ExpenseState> emit,
-  ) {
+  void _onExpenseDeleted(ExpenseDeleted event, Emitter<ExpenseState> emit) {
     _expenseRepository.removeExpense(event.id);
   }
 }

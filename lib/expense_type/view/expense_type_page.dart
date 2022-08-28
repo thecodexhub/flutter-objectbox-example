@@ -34,7 +34,7 @@ class ExpenseTypePage extends StatelessWidget {
               )..add(ExpenseTypeSubscriptionRequested()),
             ),
           ],
-          child: const ExpenseTypeForm(),
+          child: const ExpenseTypeView(),
         ),
       ),
     );

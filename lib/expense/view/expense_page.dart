@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_objectbox_example/entities/expense.dart';
 import 'package:flutter_objectbox_example/expense/expense.dart';
 import 'package:flutter_objectbox_example/expense_type/expense_type.dart';
 import 'package:flutter_objectbox_example/repository/repository.dart';
@@ -17,7 +16,7 @@ class ExpensePage extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () => Navigator.push(context, ExpenseTypePage.route()),
-            icon: const Icon(Icons.add),
+            icon: const Icon(Icons.app_registration),
           ),
         ],
       ),
@@ -91,13 +90,12 @@ class _LastWeekSpentWidget extends StatelessWidget {
       builder: (context, state) {
         return SizedBox(
           height: 120,
-          // color: Colors.red,
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  'Spent this week',
+                  'Spent last 7 days',
                   style: TextStyle(fontSize: 18, color: Colors.black45),
                 ),
                 const SizedBox(height: 8),
@@ -136,7 +134,7 @@ class _ExpenseSortToggleWidget extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    state.expenseSort.label,
+                    state.expenseSort.name.toUpperCase(),
                     style: const TextStyle(fontSize: 17),
                   ),
                   const SizedBox(width: 4),

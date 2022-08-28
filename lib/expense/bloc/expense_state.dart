@@ -2,14 +2,7 @@ part of 'expense_bloc.dart';
 
 enum ExpenseStatus { initial, loading, success, failure }
 
-enum ExpenseSort {
-  none('None'),
-  time('Time'),
-  amount('Amount');
-
-  const ExpenseSort(this.label);
-  final String label;
-}
+enum ExpenseSort { none, time, amount }
 
 class ExpenseState extends Equatable {
   const ExpenseState({
@@ -25,12 +18,7 @@ class ExpenseState extends Equatable {
   final double expenseInLast7Days;
 
   @override
-  List<Object> get props => [
-        status,
-        expenses,
-        expenseSort,
-        expenseInLast7Days,
-      ];
+  List<Object> get props => [status, expenses, expenseSort, expenseInLast7Days];
 
   ExpenseState copyWith({
     ExpenseStatus? status,

@@ -18,13 +18,8 @@ class ExpenseFormState extends Equatable {
   final String? errorMessage;
 
   @override
-  List<Object> get props => [
-        amount,
-        note,
-        expenseTypes,
-        selectedTypeIndex,
-        status,
-      ];
+  List<Object> get props =>
+      [amount, note, expenseTypes, selectedTypeIndex, status];
 
   ExpenseFormState copyWith({
     Amount? amount,
